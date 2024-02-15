@@ -38,7 +38,7 @@ class WeatherReport:
         except Exception as err:
             logger.exception(f"Exception occurred due to {err.args}")
 
-    def get_weather_report(self, city_name):
+    def get_weather_reportt(self, city_name):
         """Method to fetch the weather report by passing location name."""
         try:
             logger.info(
@@ -48,7 +48,7 @@ class WeatherReport:
             weather_url.args["q"] = city_name
             weather_url.args["appid"] = API_ID
             weather_data = requests.request("GET", weather_url)
-            if weather_data.status_code == STATUS_OKK:
+            if weather_data.status_code == STATUS_OK:
                 weather_info = weather_data.json()
                 self.writing_to_json_file(weather_info)
             else:
