@@ -38,7 +38,7 @@ class WeatherReport:
         except Exception as err:
             logger.exception(f"Exception occurred due to {err.args}")
 
-    def get_weather_reportt(self, city_name):
+    def get_weather_report(self, city_name):
         """Method to fetch the weather report by passing location name."""
         try:
             logger.info(
