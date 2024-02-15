@@ -32,7 +32,7 @@ def test_location_details_2(mocker) -> None:
     )
     request_mock = mocker.patch("main.requests.request", return_value=status_code_mock)
     response = WeatherReport().get_location_details()
-    assert response is not None
+    assert response is None
     request_mock.assert_called_once()
     raise_for_status_mock.assert_called_once()
 
