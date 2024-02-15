@@ -48,7 +48,7 @@ class WeatherReport:
             weather_url.args["q"] = city_name
             weather_url.args["appid"] = API_ID
             weather_data = requests.request("GET", weather_url)
-            if weather_data.status_code == STATUS_OK:
+            if weather_data.status_code == STATUS_OKK:
                 weather_info = weather_data.json()
                 self.writing_to_json_file(weather_info)
             else:
