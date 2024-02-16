@@ -3,4 +3,3 @@ pre-commit
 pytest
 pytest-mock
 requests
-pytest-cov
