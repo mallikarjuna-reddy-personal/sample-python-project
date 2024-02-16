@@ -2,7 +2,7 @@
 API_ID = "be11450ac93c60a92047e1b8e2188a8b"
 LOCATION_URL = "http://ip-api.com/json"
 WEATHER_REPORT_URL = "https://api.openweathermap.org/data/2.5/weather"
-IP_ADDRESS = "192.88.100.0"
+IP_ADDRESS = "49.249.58.56"
 JSON_FILE_NAME = "weather-report.json"
 STATUS_OK = 200
 WEATHER_REPORT_LOG = "log.log"
