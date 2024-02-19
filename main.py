@@ -14,6 +14,10 @@ from config import (
     WEATHER_REPORT_URL,
 )
 from log import logger
+from fastapi import FastAPI
+import uvicorn
+
+app = FastAPI()
 
 
 class WeatherReport:
@@ -53,6 +57,7 @@ class WeatherReport:
                 self.writing_to_json_file(weather_info)
             else:
                 weather_data.raise_for_status()
+            return weather_info
         except Exception as err:
             logger.exception(f"Exception occurred due to {err.args}")
 
@@ -68,13 +73,20 @@ class WeatherReport:
             logger.exception(f"Exception occurred due to {err.args}")
 
 
-if __name__ == "__main__":
+# if __name__ == "__main__":
+@app.get("/get-weather-report")
+async def whether_report():
+    global weather_info
     try:
         logger.info(
             f"Initiating the main method to get the weather report of {IP_ADDRESS} IPAdress"
         )
         weather_report = WeatherReport()
         city_name = weather_report.get_location_details()
-        weather_report.get_weather_report(city_name)
+        weather_info = weather_report.get_weather_report(city_name)
+        return weather_info
     except Exception as err:
         logger.exception(f"Exception occurred due to {err.args}")
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="3.21.156.44", port=8001)
