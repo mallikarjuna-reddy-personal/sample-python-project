@@ -88,5 +88,5 @@ async def whether_report():
     except Exception as err:
         logger.exception(f"Exception occurred due to {err.args}")
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1")
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="127.0.0.1")
