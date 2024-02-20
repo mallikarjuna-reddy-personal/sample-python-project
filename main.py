@@ -89,4 +89,4 @@ async def whether_report():
         logger.exception(f"Exception occurred due to {err.args}")
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="3.21.156.44", port=8001)
+    uvicorn.run(app, host="ec2-18-117-153-188.us-east-2.compute.amazonaws.com", port=8001)
