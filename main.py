@@ -73,7 +73,6 @@ class WeatherReport:
             logger.exception(f"Exception occurred due to {err.args}")
 
 
-# if __name__ == "__main__":
 @app.get("/get-weather-report")
 async def whether_report():
     global weather_info
@@ -88,5 +87,5 @@ async def whether_report():
     except Exception as err:
         logger.exception(f"Exception occurred due to {err.args}")
 
-if __name__ == "__main__":
-    uvicorn.run(app, host="ec2-18-117-153-188.us-east-2.compute.amazonaws.com", port=8001)
+# if __name__ == "__main__":
+#     uvicorn.run(app, host="ec2-18-117-153-188.us-east-2.compute.amazonaws.com", port=8001)
