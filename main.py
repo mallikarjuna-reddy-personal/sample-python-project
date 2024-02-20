@@ -17,6 +17,7 @@ from log import logger
 from fastapi import FastAPI
 import uvicorn
 
+
 app = FastAPI()
 
 
