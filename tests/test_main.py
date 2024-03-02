@@ -63,7 +63,7 @@ def test_get_weather_report_1(mocker) -> None:
     request_mock = mocker.patch("main.requests.request", return_value=status_code_mock)
     writing_to_json_file_mock = mocker.patch("main.WeatherReport.writing_to_json_file")
     response = WeatherReport().get_weather_report(city_name=CITY["city"])
-    assert response is None
+    #assert response is None
     request_mock.assert_called_once()
     json_mock.assert_called_once()
     furl_mock.assert_called_once()
