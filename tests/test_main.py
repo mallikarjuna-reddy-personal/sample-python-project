@@ -51,41 +51,41 @@ def test_location_details_3(mocker) -> None:
     request_mock.assert_called_once()
 
 
-# def test_get_weather_report_1(mocker) -> None:
-#     """
-#     Test case to test the get_weather_report function when
-#     fetching the weather report successful
-#     """
+def test_get_weather_report_1(mocker) -> None:
+    """
+    Test case to test the get_weather_report function when
+    fetching the weather report successful
+    """
 
-#     furl_mock = mocker.patch("main.furl")
-#     json_mock = mocker.MagicMock(return_value=WEATHER_REPORT_DATA)
-#     status_code_mock = mocker.MagicMock(status_code=OK_STATUS_CODE, json=json_mock)
-#     request_mock = mocker.patch("main.requests.request", return_value=status_code_mock)
-#     writing_to_json_file_mock = mocker.patch("main.WeatherReport.writing_to_json_file")
-#     response = WeatherReport().get_weather_report(city_name=CITY["city"])
-#     assert response is None
-#     request_mock.assert_called_once()
-#     json_mock.assert_called_once()
-#     furl_mock.assert_called_once()
-#     writing_to_json_file_mock.assert_called_once()
+    furl_mock = mocker.patch("main.furl")
+    json_mock = mocker.MagicMock(return_value=WEATHER_REPORT_DATA)
+    status_code_mock = mocker.MagicMock(status_code=OK_STATUS_CODE, json=json_mock)
+    request_mock = mocker.patch("main.requests.request", return_value=status_code_mock)
+    writing_to_json_file_mock = mocker.patch("main.WeatherReport.writing_to_json_file")
+    response = WeatherReport().get_weather_report(city_name=CITY["city"])
+    assert response is None
+    request_mock.assert_called_once()
+    json_mock.assert_called_once()
+    furl_mock.assert_called_once()
+    writing_to_json_file_mock.assert_called_once()
 
 
-# def test_get_weather_report_2(mocker) -> None:
-#     """
-#     Test case to test the get_weather_report function when
-#     Exception occurs
-#     """
+def test_get_weather_report_2(mocker) -> None:
+    """
+    Test case to test the get_weather_report function when
+    Exception occurs
+    """
 
-#     furl_mock = mocker.patch("main.furl")
-#     raise_for_status_mock = mocker.MagicMock(
-#         side_effect=[Exception("Failed to fetch the weather data")]
-#     )
-#     status_code_mock = mocker.MagicMock(
-#         status_code=FAILURE_STATUS_CODE, raise_for_status=raise_for_status_mock
-#     )
-#     request_mock = mocker.patch("main.requests.request", return_value=status_code_mock)
-#     response = WeatherReport().get_weather_report(city_name=CITY["city"])
-#     assert response is None
-#     request_mock.assert_called_once()
-#     raise_for_status_mock.assert_called_once()
-#     furl_mock.assert_called_once()
+    furl_mock = mocker.patch("main.furl")
+    raise_for_status_mock = mocker.MagicMock(
+        side_effect=[Exception("Failed to fetch the weather data")]
+    )
+    status_code_mock = mocker.MagicMock(
+        status_code=FAILURE_STATUS_CODE, raise_for_status=raise_for_status_mock
+    )
+    request_mock = mocker.patch("main.requests.request", return_value=status_code_mock)
+    response = WeatherReport().get_weather_report(city_name=CITY["city"])
+    assert response is None
+    request_mock.assert_called_once()
+    raise_for_status_mock.assert_called_once()
+    furl_mock.assert_called_once()
